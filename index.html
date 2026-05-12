@@ -2134,7 +2134,7 @@ footer{
   </div>
 </section>
 
-<!-- WORK -->
+-- WORK -->
 <section id="work">
   <div class="section-head fade-up">
     <span class="tag">Selected Work</span>
@@ -2172,4 +2172,194 @@ footer{
         <span class="tag">Growth Systems</span>
       </div>
       <div class="work-right">
-        <span cl
+        <span class="work-year">2024</span>
+        <span class="work-result">12× ROI</span>
+        <span class="work-arrow">→</span>
+      </div>
+    </div>
+    <div class="work-row fade-up" style="transition-delay:.24s">
+      <div class="work-left">
+        <span class="work-num">04</span>
+        <span class="work-title">GlobalReach SEO</span>
+        <span class="tag">Digital Strategy</span>
+      </div>
+      <div class="work-right">
+        <span class="work-year">2024</span>
+        <span class="work-result">+890% organic</span>
+        <span class="work-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div style="position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(200,255,0,.07) 0%,transparent 70%);pointer-events:none"></div>
+  <div class="about-grid">
+    <div class="fade-up">
+      <span class="tag">Our Mission</span>
+      <h2 class="section-title" style="margin-bottom:28px">We don't consult.<br>We <span>execute.</span></h2>
+      <div class="about-text">
+        <p>Omnimate is a global automation and digital growth firm. We embed ourselves into your operations, identify every inefficiency, and build systems that grow faster than your team.</p>
+        <p>From AI-powered workflows to market-dominating web infrastructure — we ship. We measure. We iterate.</p>
+      </div>
+    </div>
+    <div class="about-cards fade-up" style="transition-delay:.2s">
+      <div class="about-card">
+        <div class="about-card-value">2022</div>
+        <div class="about-card-label">Founded</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-value">45+</div>
+        <div class="about-card-label">Team Size</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-value">12+</div>
+        <div class="about-card-label">Industries</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-value">8.4×</div>
+        <div class="about-card-label">Avg. ROI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-head fade-up">
+    <span class="tag">The People</span>
+    <h2 class="section-title">Built by <span>obsessives.</span></h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card fade-up">
+      <div class="team-avatar" style="background:rgba(200,255,0,.1);border:2px solid rgba(200,255,0,.4);color:#C8FF00">AC</div>
+      <div class="team-name">Alex Chen</div>
+      <div class="team-role">Founder & CEO</div>
+    </div>
+    <div class="team-card fade-up" style="transition-delay:.1s">
+      <div class="team-avatar" style="background:rgba(0,207,255,.1);border:2px solid rgba(0,207,255,.4);color:#00CFFF">MP</div>
+      <div class="team-name">Maya Patel</div>
+      <div class="team-role">Head of AI</div>
+    </div>
+    <div class="team-card fade-up" style="transition-delay:.2s">
+      <div class="team-avatar" style="background:rgba(255,107,53,.1);border:2px solid rgba(255,107,53,.4);color:#FF6B35">JL</div>
+      <div class="team-name">Jordan Lee</div>
+      <div class="team-role">Lead Engineer</div>
+    </div>
+    <div class="team-card fade-up" style="transition-delay:.3s">
+      <div class="team-avatar" style="background:rgba(200,255,0,.1);border:2px solid rgba(200,255,0,.4);color:#C8FF00">SR</div>
+      <div class="team-name">Sam Rivera</div>
+      <div class="team-role">Growth Director</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-glow"></div>
+  <div class="contact-inner">
+    <div class="contact-head fade-up">
+      <span class="tag">Contact</span>
+      <h2 class="section-title">Ready to <span>dominate?</span></h2>
+      <p class="contact-sub">Drop us a line. We respond within 24 hours.</p>
+    </div>
+    <div class="fade-up" style="transition-delay:.15s">
+      <div class="success-box" id="successBox">
+        <div class="success-icon">⚡</div>
+        <div class="success-title">Message Sent.</div>
+        <div class="success-sub">We'll be in touch shortly.</div>
+      </div>
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" required placeholder="Your name"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" required placeholder="your@email.com"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" required placeholder="Tell us about your project..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">SEND MESSAGE</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <div class="logo-diamond" style="width:22px;height:22px"></div>
+    <span class="footer-copy">© 2025 Omnimate. All rights reserved.</span>
+  </div>
+  <div class="footer-links">
+    <a href="#">Twitter</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">GitHub</a>
+  </div>
+</footer>
+
+<script>
+// ── NAVBAR SCROLL ──
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);
+},{passive:true});
+
+// ── MOBILE MENU ──
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+    document.getElementById('mobileMenu').classList.remove('open');
+  });
+});
+
+// ── HERO TYPEWRITER ──
+const words=['AUTOMATE.','SCALE.','DOMINATE.'];
+let wi=0,ci=0,deleting=false;
+const el=document.getElementById('heroWord');
+function type(){
+  const w=words[wi];
+  if(!deleting){
+    el.textContent=w.slice(0,ci+1);
+    ci++;
+    if(ci===w.length){setTimeout(()=>{deleting=true;type();},1800);return;}
+  }else{
+    el.textContent=w.slice(0,ci-1);
+    ci--;
+    if(ci===0){deleting=false;wi=(wi+1)%words.length;}
+  }
+  setTimeout(type,deleting?60:100);
+}
+type();
+
+// ── SCROLL REVEAL ──
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.12});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// ── CONTACT FORM ──
+function handleSubmit(e){
+  e.preventDefault();
+  document.getElementById('contactForm').style.display='none';
+  document.getElementById('successBox').classList.add('show');
+  setTimeout(()=>{
+    document.getElementById('successBox').classList.remove('show');
+    document.getElementById('contactForm').style.display='block';
+    e.target.reset();
+  },4000);
+}
+</script>
+</body>
+</html>

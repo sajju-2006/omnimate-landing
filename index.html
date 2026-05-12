@@ -560,6 +560,532 @@ footer{
         <span class="tag">Growth Systems</span>
       </div>
       <div class="work-right">
+        <span clgrid-bg{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(200,255,0,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(200,255,0,.03) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes pulse{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes glow{0%,100%{box-shadow:0 0 40px rgba(200,255,0,.3)}50%{box-shadow:0 0 70px rgba(200,255,0,.6)}}
+
+.fade-up{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ── NAVBAR ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:68px;padding:0 5vw;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:all .4s ease;
+}
+nav.scrolled{
+  background:rgba(4,4,4,.92);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(200,255,0,.08);
+}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-diamond{
+  width:30px;height:30px;background:var(--lime);
+  clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);
+  flex-shrink:0;
+}
+.logo-text{font-family:var(--font-display);font-weight:800;font-size:18px;letter-spacing:-.02em}
+.logo-text span{color:var(--lime)}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{
+  color:#aaa;font-family:var(--font-mono);font-size:13px;
+  letter-spacing:.05em;transition:color .2s;
+}
+.nav-links a:hover{color:var(--lime)}
+.nav-cta{
+  background:var(--lime);color:#040404;
+  padding:10px 22px;font-family:var(--font-mono);
+  font-size:12px;font-weight:700;letter-spacing:.08em;
+  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+  transition:opacity .2s,box-shadow .2s;
+}
+.nav-cta:hover{opacity:.85;box-shadow:0 0 30px rgba(200,255,0,.4)}
+.hamburger{
+  display:none;background:none;border:none;
+  color:var(--lime);font-size:24px;cursor:pointer;padding:8px;
+}
+.mobile-menu{
+  position:fixed;inset:0;z-index:99;
+  background:rgba(4,4,4,.98);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:32px;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a{
+  font-family:var(--font-display);font-weight:700;
+  font-size:32px;color:#fff;transition:color .2s;
+}
+.mobile-menu a:hover{color:var(--lime)}
+.mobile-close{
+  position:absolute;top:22px;right:24px;
+  background:none;border:none;color:var(--lime);
+  font-size:28px;cursor:pointer;
+}
+
+/* ── TAG ── */
+.tag{
+  display:inline-block;padding:3px 10px;
+  border:1px solid var(--lime);color:var(--lime);
+  font-size:10px;font-family:var(--font-mono);
+  letter-spacing:.12em;text-transform:uppercase;border-radius:2px;
+}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:120px 5vw 80px;position:relative;overflow:hidden;
+}
+.hero-glow{
+  position:absolute;top:20%;right:5%;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,255,0,.12) 0%,transparent 70%);
+  pointer-events:none;animation:pulse 4s ease-in-out infinite;
+}
+.hero-content{max-width:900px;position:relative;z-index:2}
+.hero-h1{
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(48px,9vw,110px);line-height:1;
+  color:#fff;letter-spacing:-.04em;margin:24px 0 0;
+}
+.hero-word{
+  color:var(--lime);display:inline-block;
+  min-width:4ch;
+}
+.hero-sub{
+  font-size:clamp(15px,2vw,19px);color:#888;
+  max-width:520px;line-height:1.7;margin:32px 0 48px;
+}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{
+  background:var(--lime);color:#040404;
+  padding:16px 36px;font-family:var(--font-mono);
+  font-weight:700;font-size:13px;letter-spacing:.1em;
+  clip-path:polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%);
+  display:inline-block;transition:transform .2s,box-shadow .2s;
+  box-shadow:0 0 40px rgba(200,255,0,.3);cursor:pointer;border:none;
+}
+.btn-primary:hover{transform:scale(1.04);box-shadow:0 0 60px rgba(200,255,0,.5)}
+.btn-secondary{
+  border:1px solid rgba(255,255,255,.2);color:#fff;
+  padding:16px 36px;font-family:var(--font-mono);
+  font-size:13px;letter-spacing:.1em;display:inline-block;
+  transition:border-color .2s;background:none;cursor:pointer;
+}
+.btn-secondary:hover{border-color:var(--lime)}
+.hero-stats{
+  display:flex;gap:40px;flex-wrap:wrap;
+  margin-top:72px;padding-top:40px;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.stat-value{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(24px,3vw,36px);color:var(--lime);
+}
+.stat-label{
+  font-size:11px;color:#555;font-family:var(--font-mono);
+  letter-spacing:.08em;text-transform:uppercase;margin-top:4px;
+}
+
+/* ── TICKER ── */
+.ticker-wrap{
+  overflow:hidden;
+  border-top:1px solid rgba(200,255,0,.1);
+  border-bottom:1px solid rgba(200,255,0,.1);
+  padding:14px 0;background:rgba(200,255,0,.02);
+}
+.ticker-inner{
+  display:flex;gap:60px;
+  animation:ticker 20s linear infinite;
+  width:max-content;
+}
+.ticker-item{
+  color:var(--lime);font-family:var(--font-mono);
+  font-size:11px;letter-spacing:.18em;white-space:nowrap;
+  display:flex;align-items:center;gap:60px;
+}
+.ticker-dot{color:var(--subtle)}
+
+/* ── SECTIONS ── */
+section{padding:120px 5vw;position:relative}
+.section-head{margin-bottom:72px}
+.section-title{
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(36px,5vw,64px);color:#fff;
+  margin:20px 0 0;letter-spacing:-.03em;line-height:1.1;
+}
+.section-title span{color:var(--lime)}
+
+/* ── SERVICES GRID ── */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1px;background:rgba(200,255,0,.08);
+}
+.service-card{
+  padding:48px 40px;background:var(--surface);
+  position:relative;overflow:hidden;
+  transition:background .3s;cursor:default;
+}
+.service-card:hover{background:rgba(200,255,0,.04)}
+.service-card:hover .service-more{opacity:1}
+.service-card:hover .service-num{opacity:.06}
+.service-num{
+  position:absolute;top:-20px;right:-10px;
+  font-size:100px;color:var(--lime);
+  font-family:var(--font-display);font-weight:900;
+  opacity:.03;line-height:1;user-select:none;
+  transition:opacity .3s;
+}
+.service-icon{font-size:32px;margin-bottom:20px}
+.service-title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:22px;color:#fff;margin:16px 0 12px;
+}
+.service-desc{color:#666;font-size:14px;line-height:1.7;margin:0}
+.service-more{
+  margin-top:32px;color:var(--lime);
+  font-family:var(--font-mono);font-size:12px;
+  letter-spacing:.1em;opacity:0;transition:opacity .3s;
+}
+
+/* ── WORK ── */
+.work-list{
+  display:flex;flex-direction:column;gap:1px;
+  background:rgba(255,255,255,.05);
+}
+.work-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:32px 0;flex-wrap:wrap;gap:16px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  transition:background .3s;cursor:pointer;
+}
+.work-row:hover{background:rgba(200,255,0,.03)}
+.work-row:hover .work-title{color:var(--lime)}
+.work-row:hover .work-arrow{color:var(--lime)}
+.work-left{display:flex;align-items:center;gap:28px}
+.work-num{color:var(--subtle);font-family:var(--font-mono);font-size:12px}
+.work-title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(18px,2.5vw,28px);color:#fff;
+  transition:color .3s;
+}
+.work-right{display:flex;align-items:center;gap:32px}
+.work-year{color:#444;font-family:var(--font-mono);font-size:12px}
+.work-result{color:var(--lime);font-family:var(--font-mono);font-size:13px;font-weight:700}
+.work-arrow{color:var(--subtle);font-size:18px;transition:color .3s}
+
+/* ── ABOUT ── */
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+}
+.about-text p{color:#666;font-size:16px;line-height:1.8;margin-bottom:20px}
+.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.about-card{
+  padding:32px 24px;
+  border:1px solid rgba(200,255,0,.15);
+  background:rgba(200,255,0,.02);
+}
+.about-card-value{
+  font-family:var(--font-display);font-weight:900;
+  font-size:36px;color:var(--lime);
+}
+.about-card-label{
+  font-size:11px;color:#555;font-family:var(--font-mono);
+  letter-spacing:.1em;text-transform:uppercase;margin-top:8px;
+}
+
+/* ── TEAM ── */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;
+}
+.team-card{
+  padding:40px 32px;
+  border:1px solid rgba(255,255,255,.06);
+  background:#060606;
+  transition:all .35s ease;cursor:default;
+}
+.team-card:hover{border-color:var(--lime);background:rgba(200,255,0,.03)}
+.team-avatar{
+  width:72px;height:72px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:800;
+  font-size:20px;margin-bottom:24px;
+  transition:box-shadow .3s;
+}
+.team-card:hover .team-avatar{box-shadow:0 0 30px rgba(200,255,0,.3)}
+.team-name{font-family:var(--font-display);font-weight:700;font-size:18px;color:#fff;margin-bottom:6px}
+.team-role{color:#555;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em}
+
+/* ── CONTACT ── */
+#contact{padding:120px 5vw 160px}
+.contact-inner{max-width:680px;margin:0 auto;position:relative;z-index:2}
+.contact-glow{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,255,0,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.contact-head{text-align:center;margin-bottom:64px}
+.contact-sub{color:#555;font-size:16px;margin-top:12px}
+.form-group{margin-bottom:16px}
+.form-label{
+  display:block;color:#555;font-size:11px;
+  font-family:var(--font-mono);letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:8px;
+}
+.form-input,.form-textarea{
+  width:100%;background:#0a0a0a;
+  border:1px solid rgba(255,255,255,.1);
+  color:#fff;padding:16px 20px;font-size:15px;
+  font-family:'DM Sans',sans-serif;outline:none;
+  transition:border-color .2s;
+}
+.form-input:focus,.form-textarea:focus{border-color:var(--lime)}
+.form-textarea{resize:vertical;min-height:140px}
+.form-submit{
+  width:100%;margin-top:8px;
+  background:var(--lime);color:#040404;
+  padding:18px;font-family:var(--font-mono);
+  font-weight:700;font-size:13px;letter-spacing:.12em;
+  border:none;cursor:pointer;
+  clip-path:polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%);
+  transition:opacity .2s,box-shadow .2s;
+  box-shadow:0 0 30px rgba(200,255,0,.2);
+}
+.form-submit:hover{opacity:.9;box-shadow:0 0 50px rgba(200,255,0,.4)}
+.success-box{
+  text-align:center;padding:60px;
+  border:1px solid var(--lime);
+  background:rgba(200,255,0,.05);
+  display:none;
+}
+.success-box.show{display:block}
+.success-icon{font-size:48px;margin-bottom:16px}
+.success-title{color:var(--lime);font-family:var(--font-display);font-weight:700;font-size:22px}
+.success-sub{color:#666;margin-top:8px}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid rgba(255,255,255,.06);
+  padding:48px 5vw;
+  display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;gap:24px;
+}
+.footer-logo{display:flex;align-items:center;gap:10px}
+.footer-copy{color:var(--subtle);font-family:var(--font-mono);font-size:12px}
+.footer-links{display:flex;gap:32px}
+.footer-links a{
+  color:#444;font-family:var(--font-mono);
+  font-size:11px;letter-spacing:.08em;
+  transition:color .2s;
+}
+.footer-links a:hover{color:var(--lime)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr}
+  .about-cards{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .hero-stats{gap:24px}
+  .work-right{display:none}
+  section{padding:80px 5vw}
+}
+@media(max-width:480px){
+  .hero-btns{flex-direction:column}
+  .btn-primary,.btn-secondary{text-align:center}
+  .about-cards{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Grid Background -->
+<div class="grid-bg"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#hero" class="logo">
+    <div class="logo-diamond"></div>
+    <div class="logo-text">Omni<span>mate</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#team">Team</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">GET STARTED</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#work" onclick="toggleMenu()">Work</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#team" onclick="toggleMenu()">Team</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<main style="position:relative;z-index:2">
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <span class="tag">Global Automation Infrastructure</span>
+    <h1 class="hero-h1">
+      BUILD.<br>
+      <span class="hero-word" id="heroWord">AUTOMATE.</span>
+    </h1>
+    <p class="hero-sub">
+      AI automation, web design, and digital growth infrastructure — for businesses that refuse to stay small.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">START A PROJECT</a>
+      <a href="#work" class="btn-secondary">VIEW WORK →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-value">200+</div>
+        <div class="stat-label">Clients Globally</div>
+      </div>
+      <div>
+        <div class="stat-value">98%</div>
+        <div class="stat-label">Retention Rate</div>
+      </div>
+      <div>
+        <div class="stat-value">$50M+</div>
+        <div class="stat-label">Revenue Generated</div>
+      </div>
+      <div>
+        <div class="stat-value">40+</div>
+        <div class="stat-label">Countries Served</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">AI AUTOMATION <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">WEB INFRASTRUCTURE <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">GROWTH SYSTEMS <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">DIGITAL STRATEGY <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">GLOBAL REACH <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">RESULTS FIRST <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">AI AUTOMATION <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">WEB INFRASTRUCTURE <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">GROWTH SYSTEMS <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">DIGITAL STRATEGY <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">GLOBAL REACH <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">RESULTS FIRST <span class="ticker-dot">◆</span></span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-head fade-up">
+    <span class="tag">What We Do</span>
+    <h2 class="section-title">Infrastructure for<br><span>market leaders.</span></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-num">01</div>
+      <div class="service-icon">⚡</div>
+      <span class="tag">Core</span>
+      <h3 class="service-title">AI Automation</h3>
+      <p class="service-desc">End-to-end workflow automation using LLMs, computer vision, and intelligent agents that eliminate manual bottlenecks.</p>
+      <div class="service-more">LEARN MORE →</div>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:.1s">
+      <div class="service-num">02</div>
+      <div class="service-icon">🏗</div>
+      <span class="tag">Build</span>
+      <h3 class="service-title">Web Infrastructure</h3>
+      <p class="service-desc">High-performance digital experiences engineered for speed, scale, and conversion — from MVP to enterprise.</p>
+      <div class="service-more">LEARN MORE →</div>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:.2s">
+      <div class="service-num">03</div>
+      <div class="service-icon">📈</div>
+      <span class="tag">Scale</span>
+      <h3 class="service-title">Growth Systems</h3>
+      <p class="service-desc">Data-driven marketing pipelines: SEO engines, paid acquisition, and content automation that compounds.</p>
+      <div class="service-more">LEARN MORE →</div>
+    </div>
+    <div class="service-card fade-up" style="transition-delay:.3s">
+      <div class="service-num">04</div>
+      <div class="service-icon">🌐</div>
+      <span class="tag">Strategy</span>
+      <h3 class="service-title">Digital Strategy</h3>
+      <p class="service-desc">Global market positioning and competitive intelligence, translated into actionable roadmaps that win.</p>
+      <div class="service-more">LEARN MORE →</div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="section-head fade-up">
+    <span class="tag">Selected Work</span>
+    <h2 class="section-title">Results that<br><span>speak for themselves.</span></h2>
+  </div>
+  <div class="work-list">
+    <div class="work-row fade-up">
+      <div class="work-left">
+        <span class="work-num">01</span>
+        <span class="work-title">AutoFlow CRM</span>
+        <span class="tag">AI Automation</span>
+      </div>
+      <div class="work-right">
+        <span class="work-year">2025</span>
+        <span class="work-result">+340% efficiency</span>
+        <span class="work-arrow">→</span>
+      </div>
+    </div>
+    <div class="work-row fade-up" style="transition-delay:.08s">
+      <div class="work-left">
+        <span class="work-num">02</span>
+        <span class="work-title">NexGen Commerce</span>
+        <span class="tag">Web Infrastructure</span>
+      </div>
+      <div class="work-right">
+        <span class="work-year">2025</span>
+        <span class="work-result">0 → $2M ARR</span>
+        <span class="work-arrow">→</span>
+      </div>
+    </div>
+    <div class="work-row fade-up" style="transition-delay:.16s">
+      <div class="work-left">
+        <span class="work-num">03</span>
+        <span class="work-title">PulseAI Dashboard</span>
+        <span class="tag">Growth Systems</span>
+      </div>
+      <div class="work-right">
         <span cl.grid-bg{
   position:fixed;inset:0;z-index:0;pointer-events:none;
   background-image:
